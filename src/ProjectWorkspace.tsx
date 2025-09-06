@@ -38,15 +38,18 @@ const ProjectWorkspace: React.FC = () => {
   const handleImageUpload = (files: FileList) => {
     const newImages: ImageItem[] = [...images];
     Array.from(files).forEach((file) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (e.target?.result) {
-          const imageName = `c${newImages.length + 1}`;
-          newImages.push({ id: imageName, src: e.target.result as string });
-          setImages([...newImages]);
-        }
-      };
-      reader.readAsDataURL(file);
+      // Additional validation to ensure only JPG and PNG files are processed
+      if (file.type === 'image/jpeg' || file.type === 'image/png') {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          if (e.target?.result) {
+            const imageName = `c${newImages.length + 1}`;
+            newImages.push({ id: imageName, src: e.target.result as string });
+            setImages([...newImages]);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
     });
   };
 

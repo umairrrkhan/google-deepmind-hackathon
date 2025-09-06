@@ -18,7 +18,26 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
 
   const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      onImageUpload(event.target.files);
+      // Additional validation to ensure only JPG and PNG files are processed
+      const imageFiles = Array.from(event.target.files).filter(file => 
+        file.type === 'image/jpeg' || file.type === 'image/png'
+      );
+      
+      // Check if any non-JPG/PNG files were filtered out
+      const nonImageFiles = Array.from(event.target.files).filter(file => 
+        file.type !== 'image/jpeg' && file.type !== 'image/png'
+      );
+      
+      if (nonImageFiles.length > 0) {
+        alert(`${nonImageFiles.length} file(s) were ignored. Please upload only JPG or PNG images.`);
+      }
+      
+      if (imageFiles.length > 0) {
+        // Create a new FileList with only JPG and PNG files
+        const dataTransfer = new DataTransfer();
+        imageFiles.forEach(file => dataTransfer.items.add(file));
+        onImageUpload(dataTransfer.files);
+      }
     }
   };
 
@@ -29,7 +48,26 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      onImageUpload(e.dataTransfer.files);
+      // Filter to only include JPG and PNG files
+      const imageFiles = Array.from(e.dataTransfer.files).filter(file => 
+        file.type === 'image/jpeg' || file.type === 'image/png'
+      );
+      
+      // Check if any non-JPG/PNG files were filtered out
+      const nonImageFiles = Array.from(e.dataTransfer.files).filter(file => 
+        file.type !== 'image/jpeg' && file.type !== 'image/png'
+      );
+      
+      if (nonImageFiles.length > 0) {
+        alert(`${nonImageFiles.length} file(s) were ignored. Please upload only JPG or PNG images.`);
+      }
+      
+      if (imageFiles.length > 0) {
+        // Create a new FileList with only JPG and PNG files
+        const dataTransfer = new DataTransfer();
+        imageFiles.forEach(file => dataTransfer.items.add(file));
+        onImageUpload(dataTransfer.files);
+      }
     }
   };
 
@@ -66,14 +104,17 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
                 <div className="image-library">
                   {images.length > 0 ? (
                     <div className="image-gallery">
-                      {images.map((image, index) => (
-                        <div key={index} className="image-item" draggable>
-                          <img src={image.src} alt={`uploaded-${index}`} />
-                          <div className="image-label">
-                            <span className="image-name">{image.id}</span>
+                      {images
+                        .filter(image => image.src && image.src.startsWith('data:image/'))
+                        .map((image, index) => (
+                          <div key={index} className="image-item" draggable>
+                            <img src={image.src} alt={`uploaded-${index}`} />
+                            <div className="image-label">
+                              <span className="image-name">{image.id}</span>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))
+                      }
                     </div>
                   ) : (
                     <div className="empty-library">
@@ -103,7 +144,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
                     
                     <input 
                       type="file" 
-                      accept="image/*" 
+                      accept="image/jpeg, image/png" 
                       multiple 
                       onChange={handleFileInputChange} 
                       id="image-upload"
@@ -113,7 +154,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
                       Browse Files
                     </label>
                     
-                    <p className="upload-hint">Supports JPG, PNG, GIF (Max 10MB each)</p>
+                    <p className="upload-hint">Supports JPG, PNG only (Max 10MB each)</p>
                   </div>
                 </div>
               )}
