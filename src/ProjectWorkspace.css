@@ -61,6 +61,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
+}
+
+.panel:hover {
+  background-color: #e0e0e0;
 }
 
 .panel-content {
@@ -133,6 +138,127 @@
 
 .add-panel-btn:active {
   transform: scale(0.95);
+}
+
+.context-menu {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.context-menu-item {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.context-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.context-menu-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.context-menu-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.popup-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.popup-content {
+  padding: 20px;
+}
+
+.popup-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.popup-actions {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.popup-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.popup-button.cancel {
+  background-color: #f1f3f4;
+  color: #5f6368;
+}
+
+.popup-button.cancel:hover {
+  background-color: #e8eaed;
+}
+
+.popup-button.confirm {
+  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.popup-button.confirm:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 .chatbox-input {
