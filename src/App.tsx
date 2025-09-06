@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ProjectWorkspace from './ProjectWorkspace';
 
 function App() {
+  const [projectCreated, setProjectCreated] = useState(false);
+
+  const handleCreateProject = () => {
+    setProjectCreated(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {projectCreated ? (
+        <ProjectWorkspace />
+      ) : (
+        <div className="landing-page">
+          <div className="landing-content">
+            <h1>Webtoon Editor</h1>
+            <button className="create-project-btn" onClick={handleCreateProject}>
+              Create Project
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

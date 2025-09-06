@@ -1,0 +1,126 @@
+.project-workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: white;
+}
+
+.workspace-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+}
+
+.main-content.with-sidebar {
+  margin-left: 320px; /* Adjust based on new sidebar width */
+}
+
+.main-content.full-width {
+  margin-left: 32px; /* Account for sidebar toggle button */
+}
+
+.main-canvas {
+  flex: 1;
+  background-color: white;
+  overflow: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100%;
+  padding-top: 40px;
+}
+
+.placeholder-content {
+  display: none;
+}
+
+.horizontal-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  position: relative;
+  width: 600px;
+  height: 1000px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #666;
+}
+
+.panel-label {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+}
+
+.chatbox-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  z-index: 10;
+}
+
+.chatbox-container {
+  display: flex;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.chatbox-input {
+  flex-grow: 1;
+  border: none;
+  padding: 12px 20px;
+  outline: none;
+  font-size: 1em;
+}
+
+.chatbox-send-btn {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.chatbox-send-btn:hover {
+  background-color: #0b7dda;
+}
+
