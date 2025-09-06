@@ -29,6 +29,11 @@ const Chatbox: React.FC = () => {
 const ProjectWorkspace: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [images, setImages] = useState<ImageItem[]>([]);
+  const [panels, setPanels] = useState([
+    { id: 1, content: "Panel 1", label: "s1" },
+    { id: 2, content: "Panel 2", label: "s2" },
+    { id: 3, content: "Panel 3", label: "s3" }
+  ]);
 
   const handleImageUpload = (files: FileList) => {
     const newImages: ImageItem[] = [...images];
@@ -49,6 +54,16 @@ const ProjectWorkspace: React.FC = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const addNewPanel = () => {
+    const newPanelId = panels.length + 1;
+    const newPanel = {
+      id: newPanelId,
+      content: `Panel ${newPanelId}`,
+      label: `s${newPanelId}`
+    };
+    setPanels([...panels, newPanel]);
+  };
+
   return (
     <div className="project-workspace">
       <div className="workspace-content">
@@ -63,24 +78,23 @@ const ProjectWorkspace: React.FC = () => {
           {/* Main content area with horizontal panels */}
           <div className="main-canvas">
             <div className="horizontal-panels">
-              <div className="panel">
-                <div className="panel-content">Panel 1</div>
-                <div className="panel-label">s1</div>
-              </div>
-              <div className="panel">
-                <div className="panel-content">Panel 2</div>
-                <div className="panel-label">s2</div>
-              </div>
-              <div className="panel">
-                <div className="panel-content">Panel 3</div>
-                <div className="panel-label">s3</div>
-              </div>
+              {panels.map((panel) => (
+                <div className="panel" key={panel.id}>
+                  <div className="panel-content">{panel.content}</div>
+                  <div className="panel-label">{panel.label}</div>
+                </div>
+              ))}
             </div>
           </div>
           
           {/* Chatbox positioned at the bottom center */}
           <div className="chatbox-wrapper">
-            <Chatbox />
+            <div className="chatbox-container-with-button">
+              <Chatbox />
+              <button className="add-panel-btn" onClick={addNewPanel} title="Add new panel">
+                +
+              </button>
+            </div>
           </div>
         </div>
       </div>

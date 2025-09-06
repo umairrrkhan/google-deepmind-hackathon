@@ -94,12 +94,45 @@
   z-index: 10;
 }
 
+.chatbox-container-with-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .chatbox-container {
   display: flex;
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   background: white;
+  flex-grow: 1;
+}
+
+.add-panel-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.add-panel-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-panel-btn:active {
+  transform: scale(0.95);
 }
 
 .chatbox-input {
