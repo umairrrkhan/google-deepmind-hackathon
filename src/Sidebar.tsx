@@ -69,7 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
                       {images.map((image, index) => (
                         <div key={index} className="image-item" draggable>
                           <img src={image.src} alt={`uploaded-${index}`} />
-                          <div className="image-overlay">
+                          <div className="image-label">
                             <span className="image-name">{image.id}</span>
                           </div>
                         </div>
@@ -77,6 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, images, onImag
                     </div>
                   ) : (
                     <div className="empty-library">
+                      <div className="empty-icon">🖼️</div>
                       <p>No images uploaded yet</p>
                       <button 
                         className="upload-prompt-btn"
