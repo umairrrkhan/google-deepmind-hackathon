@@ -1,5 +1,8 @@
 # Webtoon Generator - Revolutionizing Digital Storytelling
 
+![Result Image](assets/result%20.png)
+![Workflow Diagram](assets/workflow%20diagram.png)
+
 ## Project Overview
 
 Webtoon Generator is a revolutionary application that leverages the power of our proprietary AI model, codenamed **Nano Banana**, to transform the traditional webtoon and manga creation process from a year-long endeavor to a matter of days. Our solution empowers creators and businesses to produce high-quality, 100+ page digital comics with minimal effort, solving billion-dollar industry challenges in content creation.
@@ -41,8 +44,6 @@ Our core innovation lies in the **Nano Banana AI model**, a cutting-edge generat
 ## Workflow
 
 Our application follows a streamlined workflow that maximizes efficiency while maintaining creative control:
-
-![Workflow Diagram](assets/workflow%20diagram.png)
 
 1. **Project Creation**: Start a new webtoon project with the click of a button
 2. **Panel Management**: Add, remove, and organize panels as needed for your story
