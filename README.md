@@ -5,11 +5,11 @@
 
 ## Project Overview
 
-Webtoon Generator is a revolutionary application that leverages the power of our proprietary AI model, codenamed **Nano Banana**, to transform the traditional webtoon and manga creation process from a year-long endeavor to a matter of days. Our solution empowers creators and businesses to produce high-quality, 100+ page digital comics with minimal effort, solving billion-dollar industry challenges in content creation.
+Webtoon Generator is a revolutionary application that leverages the power of Google's AI model, codenamed **Nano Banana**, to transform the traditional webtoon and manga creation process from a year-long endeavor to a matter of days. Our solution empowers creators and businesses to produce high-quality, 100+ page digital comics with minimal effort, solving billion-dollar industry challenges in content creation.
 
 ## The Nano Banana Advantage
 
-Our core innovation lies in the **Nano Banana AI model**, a cutting-edge generative model specifically designed for visual storytelling. This model dramatically reduces production time while maintaining exceptional quality, enabling:
+Our core innovation lies in leveraging **Google's Nano Banana AI model**, a cutting-edge generative model specifically designed for visual storytelling. This model dramatically reduces production time while maintaining exceptional quality, enabling:
 
 * Content creators to produce 100+ page webtoons in days instead of months or years
 * Businesses to rapidly prototype visual stories for marketing campaigns
@@ -25,7 +25,7 @@ Our core innovation lies in the **Nano Banana AI model**, a cutting-edge generat
 ### 2. AI-Powered Image Generation
 * Generate high-quality comic panel images using natural language prompts
 * Leverage context from previous panels or uploaded images for consistent storytelling
-* Create visually cohesive stories with our Nano Banana AI model
+* Create visually cohesive stories with Google's Nano Banana AI model
 
 ### 3. Smart Contextual References
 * Use the "@" feature to reference previous panels or uploaded images in your prompts
@@ -125,7 +125,7 @@ npm start
 
 ## The Technology Behind Nano Banana
 
-Our Nano Banana AI model is specifically trained for visual storytelling with:
+Google's Nano Banana AI model is specifically trained for visual storytelling with:
 
 * Advanced understanding of panel composition and visual narrative flow
 * Character consistency preservation across multiple generations
@@ -151,4 +151,4 @@ Webtoon Generator addresses critical pain points in the digital content creation
 
 ## Conclusion
 
-Webtoon Generator with the Nano Banana AI model represents a paradigm shift in digital storytelling. By reducing production time from years to days while maintaining professional quality, we're democratizing access to high-quality visual content creation and enabling creators to focus on what matters most: telling compelling stories.
+Webtoon Generator with Google's Nano Banana AI model represents a paradigm shift in digital storytelling. By reducing production time from years to days while maintaining professional quality, we're democratizing access to high-quality visual content creation and enabling creators to focus on what matters most: telling compelling stories.
