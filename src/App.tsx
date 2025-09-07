@@ -17,6 +17,7 @@ function App() {
         <div className="landing-page">
           <div className="landing-content">
             <h1>Webtoon Editor</h1>
+            <p>Create and edit your webtoons with our intuitive panel-based editor. Add scenes, upload images, and bring your stories to life.</p>
             <button className="create-project-btn" onClick={handleCreateProject}>
               Create Project
             </button>
